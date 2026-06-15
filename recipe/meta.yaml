@@ -1,17 +1,17 @@
 {% set name = "flask-oidc" %}
-{% set version = "1.4.0" %}
+{% set version = "2.4.0" %}
 
 package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "0c12151139d47a562e1c5ae203fb9dbc759fe7474cc01e0238bef828ece58f4e"
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz"
+  sha256: "e72378fcea8f90ccab874836a61f1783092a900c965e52587c1307e38b2e2153"
 
 build:
   noarch: python
-  number: 4
+  number: 0
   entry_points:
     - oidc-register=flask_oidc.registration_util:main
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
